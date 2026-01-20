@@ -25,6 +25,27 @@
       --radius:20px;
       --max:1100px;
       --shadow:0 18px 50px rgba(0,0,0,.35);
+      /* HERO centrado y más ancho */
+.hero{
+  display:block !important;
+  margin-top:10px;
+}
+
+.hero .panel{
+  width:100%;
+  max-width: 980px;   /* <-- sube a 1100px si lo quieres más ancho */
+  margin: 0 auto;
+}
+
+/* Logo grande dentro del panel */
+.hero-logo{
+  height: 90px;        /* <-- cambia a 110px si lo quieres más grande */
+  width: auto;
+  display:block;
+  margin: 0 0 14px;
+  object-fit: contain;
+}
+
     }
 
     html{ scroll-behavior:smooth; }
@@ -391,6 +412,8 @@
     <!-- HERO -->
     <section class="hero">
       <div class="panel">
+        <img class="hero-logo" src="./logo-medina.png?v=1" alt="David & Roberto Medina">
+        
         <div class="kicker">✅ Compra segura en Hotmart · 🔒 Checkout oficial</div>
         <h2>Aprende hoy. Aplícalo de inmediato.</h2>
         <p>
