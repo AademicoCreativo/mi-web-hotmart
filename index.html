@@ -25,112 +25,83 @@
       --radius:20px;
       --max:1100px;
       --shadow:0 18px 50px rgba(0,0,0,.35);
-      /* HERO centrado y más ancho */
-.hero{
-  display:block !important;
-  margin-top:10px;
-}
-
-.hero .panel{
-  width:100%;
-  max-width: 980px;   /* <-- sube a 1100px si lo quieres más ancho */
-  margin: 0 auto;
-}
-
-/* Logo grande dentro del panel */
-.hero-logo{
-  height: 140px;           /* más grande (ajusta 120-180) */
-  width: auto;
-  display:block;
-  margin: 0 auto 18px;     /* CENTRADO */
-  object-fit: contain;
-  filter: drop-shadow(0 12px 25px rgba(0,0,0,.35));
-}
-}
-
     }
 
     html{ scroll-behavior:smooth; }
     *{ box-sizing:border-box; }
 
     body{
-  margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-  background:#000;
-  color:rgba(255,255,255,.92);
-  line-height:1.45;
-}
-
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:#000;
+      color:rgba(255,255,255,.92);
+      line-height:1.45;
     }
 
     a{ color:inherit; text-decoration:none; }
 
     /* Header dorado más bajito */
-header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  backdrop-filter: blur(8px);
-  background: linear-gradient(135deg, #d4af37, #b8860b, #8b6b12);
-  border-bottom:1px solid rgba(0,0,0,.25);
-}
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(8px);
+      background: linear-gradient(135deg, #d4af37, #b8860b, #8b6b12);
+      border-bottom:1px solid rgba(0,0,0,.25);
+    }
 
-.topbar{
-  max-width:var(--max);
-  margin:0 auto;
-  padding:10px 18px;       /* más pequeño */
-  display:grid;
-  grid-template-columns: 90px 1fr auto;  /* logo | centro | menú */
-  align-items:center;
-  gap:16px;
-}
+    .topbar{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:10px 18px;
+      display:grid;
+      grid-template-columns: 120px 1fr auto; /* logo | centro | menú */
+      align-items:center;
+      gap:16px;
+    }
 
-/* Logo izquierda */
-.brandbox{ display:flex; align-items:center; }
-.brand-logo{
-  height:54px;
-  width:auto;
-  object-fit:contain;
-  display:block;
-}
+    /* Logo izquierda (MÁS GRANDE) */
+    .brandbox{ display:flex; align-items:center; }
+    .brand-logo{
+      height:78px;   /* <-- AQUI lo agrandas (prueba 78-95px) */
+      width:auto;
+      object-fit:contain;
+      display:block;
+    }
 
-/* Centro: título centrado */
-.brandcenter{
-  text-align:center;
-}
-.brandcenter h1{
-  margin:0;
-  font-size:34px;
-  line-height:1;
-  color:#0b0b0b;
-  font-weight:900;
-}
-.brandcenter p{
-  margin:6px 0 0;
-  font-size:13px;
-  color:rgba(0,0,0,.75);
-}
+    /* Centro: título centrado */
+    .brandcenter{ text-align:center; }
+    .brandcenter h1{
+      margin:0;
+      font-size:34px;
+      line-height:1;
+      color:#0b0b0b;
+      font-weight:900;
+    }
+    .brandcenter p{
+      margin:6px 0 0;
+      font-size:13px;
+      color:rgba(0,0,0,.75);
+    }
 
-/* Menú derecha */
-nav{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  justify-content:flex-end;
-  flex-wrap:nowrap;
-}
+    /* Menú derecha */
+    nav{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-end;
+      flex-wrap:nowrap;
+    }
 
-/* Botones del menú en dorado */
-.pill{
-  padding:10px 12px;
-  border-radius:999px;
-  background: rgba(0,0,0,.12);
-  border:1px solid rgba(0,0,0,.20);
-  color:#0b0b0b;
-  font-size:13px;
-}
-.pill:hover{ background: rgba(0,0,0,.18); 
-  }
+    .pill{
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(0,0,0,.12);
+      border:1px solid rgba(0,0,0,.20);
+      color:#0b0b0b;
+      font-size:13px;
+    }
+    .pill:hover{ background: rgba(0,0,0,.18); }
 
     .cta{
       padding:10px 14px;
@@ -141,6 +112,7 @@ nav{
       color:white;
       cursor:pointer;
       box-shadow: 0 18px 40px rgba(124,58,237,.22);
+      white-space:nowrap;
     }
     .cta:hover{ filter:brightness(1.05); }
 
@@ -148,35 +120,38 @@ nav{
       max-width:var(--max);
       margin:0 auto;
       padding:28px 22px 50px;
-      padding-top:22px;
-      padding-top:22px;
-
+      padding-top:22px; /* evita que el header “pise” el contenido */
     }
 
-    /* Secciones separadas (estilo servicios) */
     section{ margin-bottom:80px; }
 
+    /* HERO centrado */
     .hero{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:18px;
-      align-items:stretch;
+      display:block;
       margin-top:10px;
     }
 
-    @media (max-width: 900px){
-      .hero{ grid-template-columns:1fr; }
-      .brandbox{ min-width:auto; }
+    .panel{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 20px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.55);
+      padding:24px;
     }
 
-    .panel{
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  border-radius: 20px;
-  box-shadow: 0 18px 50px rgba(0,0,0,.55);
-  padding:24px;
-}
+    .hero .panel{
+      width:100%;
+      max-width: 980px;
+      margin: 0 auto;
+    }
 
+    .hero-logo{
+      height: 170px;     /* logo grande del hero */
+      width: auto;
+      display:block;
+      margin: 0 auto 18px;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 25px rgba(0,0,0,.35));
     }
 
     .kicker{
@@ -242,30 +217,6 @@ nav{
       border-left: 3px solid rgba(34,197,94,.45);
       padding-left:10px;
     }
-
-    .mini-list{
-      display:grid;
-      gap:12px;
-    }
-
-    .mini{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      padding:14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
-    }
-    .dot{
-      width:12px;height:12px;border-radius:999px;
-      background: var(--accent);
-      margin-top:4px;
-      box-shadow: 0 0 0 6px rgba(34,197,94,.12);
-      flex:0 0 auto;
-    }
-    .mini strong{ display:block; margin-bottom:3px; }
-    .small{ font-size:12px; color:var(--muted); }
 
     .section-title{
       margin:0 0 14px;
@@ -389,41 +340,50 @@ nav{
       text-underline-offset: 3px;
       color: rgba(255,255,255,.90);
     }
+
+    @media (max-width: 900px){
+      .topbar{
+        grid-template-columns: 90px 1fr;
+        grid-template-rows: auto auto;
+      }
+      nav{
+        grid-column: 1 / -1;
+        justify-content:center;
+        flex-wrap:wrap;
+      }
+    }
   </style>
 </head>
 
 <body>
   <header>
-      <div class="topbar">
-  <!-- Izquierda: Logo -->
-  <div class="brandbox">
-    <img src="/AcademicoCreativo/logo.png?v=9" alt="Académico Creativo" class="brand-logo">
-  </div>
+    <div class="topbar">
+      <div class="brandbox">
+        <img src="/AcademicoCreativo/logo.png?v=10" alt="Académico Creativo" class="brand-logo">
+      </div>
 
-  <!-- Centro: Nombre + slogan -->
-  <div class="brandcenter">
-    <h1>Académico Creativo</h1>
-    <p>Guías y cursos prácticos para aprender y aplicar</p>
-  </div>
+      <div class="brandcenter">
+        <h1>Académico Creativo</h1>
+        <p>Guías y cursos prácticos para aprender y aplicar</p>
+      </div>
 
-  <!-- Derecha: Menú -->
-  <nav>
-    <a class="pill" href="#faq">FAQ</a>
-    <a class="pill" href="#contacto">Contacto</a>
-    <a class="pill" href="https://www.instagram.com/academico_creativo/" target="_blank" rel="noopener noreferrer">Instagram</a>
-    <a class="pill" href="https://www.facebook.com/profile.php?id=61586754154746" target="_blank" rel="noopener noreferrer">Facebook</a>
-    <button class="cta" id="btnTop">Ver productos</button>
-  </nav>
-</div>
-    </header>
+      <nav>
+        <a class="pill" href="#faq">FAQ</a>
+        <a class="pill" href="#contacto">Contacto</a>
+        <a class="pill" href="https://www.instagram.com/academico_creativo/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="pill" href="https://www.facebook.com/profile.php?id=61586754154746" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <button class="cta" id="btnTop">Ver productos</button>
+      </nav>
+    </div>
+  </header>
 
   <main class="wrap">
 
     <!-- HERO -->
     <section class="hero">
       <div class="panel">
-        <img class="hero-logo" src="./logo-medina.png?v=1" alt="David & Roberto Medina">
-        
+        <img class="hero-logo" src="/AcademicoCreativo/logo-medina.png?v=10" alt="David & Roberto Medina">
+
         <div class="kicker">✅ Compra segura en Hotmart · 🔒 Checkout oficial</div>
         <h2>Aprende hoy. Aplícalo de inmediato.</h2>
         <p>
@@ -440,7 +400,6 @@ nav{
           <strong>Nota:</strong> esta página es una vitrina. La compra se realiza en Hotmart.
         </div>
       </div>
-     
     </section>
 
     <!-- PRODUCTOS -->
@@ -464,33 +423,31 @@ nav{
           <div class="service-right">
             <button class="buy" onclick="openLink('https://pay.hotmart.com/M103963914V')">🔒 Comprar ahora</button>
             <button class="ghost" onclick="openLink('https://hotmart.com/es/marketplace/productos/guia-de-sintomas-de-alerta-del-higado/M103963914V?sck=HOTMART_SITE&search=80b00039-fee7-4fa2-84fc-2cbb640181d7&hotfeature=33')">Detalle</button>
-            <div class="small" style="margin-top:10px;">
-              Serás redirigido al checkout seguro de Hotmart.
-            </div>
+            <div class="small" style="margin-top:10px;">Serás redirigido al checkout seguro de Hotmart.</div>
           </div>
         </div>
 
-        <!-- (Opcional) Copia y pega este bloque para más productos -->
-        <!--
+        <!-- Producto 2 (NUEVO) -->
         <div class="service-card">
           <div class="service-left">
-            <div class="badge">Categoría</div>
-            <h3>Nombre del producto</h3>
-            <p>Descripción breve del producto.</p>
+            <div class="badge">Salud</div>
+            <h3>Significado de dolores corporales</h3>
+            <p>Descubre qué puede significar cada dolor del cuerpo y cómo interpretarlo de forma práctica.</p>
             <ul class="features">
-              <li>Beneficio 1</li>
-              <li>Beneficio 2</li>
-              <li>Beneficio 3</li>
+              <li>Interpretación por zonas del cuerpo</li>
+              <li>Explicación clara y directa</li>
+              <li>Acceso digital inmediato</li>
             </ul>
           </div>
 
           <div class="service-right">
-            <button class="buy" onclick="openLink('https://pay.hotmart.com/TU_CODIGO')">🔒 Comprar ahora</button>
-            <button class="ghost" onclick="scrollToSection('contacto')">Contactar</button>
-            <div class="small" style="margin-top:10px;">Checkout seguro Hotmart.</div>
+            <button class="buy" onclick="openLink('https://pay.hotmart.com/Y103988745K')">🔒 Comprar ahora</button>
+            <button class="ghost" onclick="openLink('https://go.hotmart.com/Y103988745K?dp=1')">Detalle</button>
+            <button class="ghost" onclick="openLink('https://go.hotmart.com/Y103988745K')">Página de ventas</button>
+            <div class="small" style="margin-top:10px;">Serás redirigido al checkout seguro de Hotmart.</div>
           </div>
         </div>
-        -->
+
       </div>
     </section>
 
